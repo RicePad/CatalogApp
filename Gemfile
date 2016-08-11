@@ -7,7 +7,7 @@ gem 'rails', '4.2.6'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 
 # Use SCSS for stylesheets
