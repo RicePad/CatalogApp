@@ -1,16 +1,13 @@
 class PinsController < ApplicationController
-  before_action :set_pin, only: [:show, :edit, :update, :destroy]
+ before_action :set_pin, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
-
   def index
-    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
-
+    @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
   end
 
-
- def show
+  def show
   end
 
   def new
@@ -29,8 +26,7 @@ class PinsController < ApplicationController
     end
   end
 
-
-    def update
+  def update
     if @pin.update(pin_params)
       redirect_to @pin, notice: 'Pin was successfully updated.'
     else
